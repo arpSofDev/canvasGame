@@ -16,8 +16,8 @@
 var gameCanvas = new myCanvas('game_canvas');
 var lastTime = 0; //used for gameLoop clock
 var gameSpeed = 5;
-var playerWalkSpeed = 1;
-var playerRunSpeed = 2;
+var playerWalkSpeed = 2;
+var playerRunSpeed = 4;
 var center = {x:gameCanvas.width / 2, y:gameCanvas.height / 2};
 /*User global variables*/
 
@@ -44,7 +44,7 @@ resources.onReady(init);
  */
 var player = {
   /*Can include any specific variables you want, add to comma-separated list*/
-  speed: 2, //use this to calculate size of steps
+  speed: playerWalkSpeed, //use this to calculate size of steps
   // pos: {x:gameCanvas.width / 2 - 24, y:gameCanvas.height / 2 - 48},
   pos: center,
   /*Set starting point*/
