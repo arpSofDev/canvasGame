@@ -29,6 +29,7 @@ var context = null;
       this.scale = {x:1,y:1};
     }
 
+    this.centre_offset = {x:0, y:0};
 
     //added optional functionality to fade out sprites - set to done once faded, so can be removed
     this.opacity = opacity || 1;
@@ -78,8 +79,16 @@ var context = null;
       }
 
       //Rotate sprite based on this.facing
-      gameCanvas.context.translate((this.size.w * this.scale.x) / 2, (this.size.h * this.scale.y) / 2);
+      //additional translation if centre of image not centre of sprite
+      gameCanvas.context.translate(
+        (this.size.w * this.scale.x) / 2 - (this.centre_offset.x * this.scale.x), 
+        (this.size.h * this.scale.y) / 2 + (this.centre_offset.y * this.scale.y));
+      
       gameCanvas.context.rotate(this.facing);
+
+      gameCanvas.context.translate(
+        +(this.centre_offset.x * this.scale.x), 
+        -(this.centre_offset.y * this.scale.y));
 
       ctx.drawImage(resources.get(this.url),
         x, y,
