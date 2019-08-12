@@ -245,3 +245,23 @@ function deg2rad(degrees) {
 function rad2deg(radians) {
   return radians / Math.PI * 180;
 }
+
+
+// Collisions
+function collides(x, y, r, b, x2, y2, r2, b2) {
+  return !(r <= x2 || x > r2 || b <= y2 || y > b2);
+}
+
+function boxCollides(pos, size, pos2, size2) {
+  return collides(pos.x, pos.y,
+                  pos.x + size.w, pos.y + size.h,
+                  pos2.x, pos2.y,
+                  pos.x + size2.w, pos2.y + size2.h);
+}
+
+function objectCollides(obj1, obj2){
+return boxCollides( obj1.pos,
+                          [obj1.sprite.size.x*obj1.sprite.scale.x, obj1.sprite.size.y*obj1.sprite.scale.y],
+                          obj2.pos,
+                          [obj2.sprite.size.x*obj2.sprite.scale.x, obj2.sprite.size.y*obj2.sprite.scale.y]);
+}
