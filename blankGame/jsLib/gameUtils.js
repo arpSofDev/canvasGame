@@ -266,3 +266,17 @@ function objectCollides(obj1, obj2) {
     obj2.pos,
     {w: obj2.sprite.size.w * obj2.sprite.scale.x, h: obj2.sprite.size.h * obj2.sprite.scale.y});
 }
+function getScaledSize(object){
+  return {
+    w: object.sprite.size.w * object.sprite.scale.x,
+    h: object.sprite.size.h * object.sprite.scale.y
+  };
+}
+function rotatePointAroundPoint(point, pivot, angle){
+  var rot_point = {
+    x: Math.cos(angle)*(point.x - pivot.x) - Math.sin(angle)*(point.y - pivot.y) + pivot.x,
+    y: Math.sin(angle)*(point.x - pivot.x) + Math.cos(angle)*(point.y - pivot.y) + pivot.y
+  };
+
+  return rot_point;
+}
