@@ -218,11 +218,12 @@ function scrollBg(bgObj, dir, dt) {
  * Need to ensure that there is an <audio id='XXX'><source src='url_of_file'></audio> in the HTML page somewhere
  * Suggest is is within the game div, but really doesn't matter
  */
-function playSound(id) {
+function playSound(id, vol=1.0) {
 
   element = document.getElementById(id);
   if (element) {
     element.load();
+    element.volume = vol;
     element.play();
   } else {
     alert("No audio element: '" + id + "'.");
