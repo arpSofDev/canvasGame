@@ -55,7 +55,7 @@ var player = {
     [0, 0], //pos_in_img[x,y] - [0,0] unless using a sprite sheet
     [64, 95], //size_in_img[x,y]
     /*These last are only required if the object has an animation*/
-    15, //animation speed - default 0
+    15, //animation speed - default 0; ie not moving
     [0, 1, 2, 1], //animation frame order - default null
     'horizontal', //direction of frames in sprite sheet - default 'horizontal'
     false, //only play once - default 'false'
@@ -399,6 +399,9 @@ function handleInput(dt) {
 */
 function handleMouseMove(pos, event) {
   // console.log('move:pos('+pos.x+','+pos.y+') ctrl:'+event.ctrlKey);
+	  
+  //get angle from current pos
+  //player.sprite.facing = Math.atan2(pos.y - (player.pos.y + player.sprite.size.h / 2), pos.x - (player.pos.x + player.sprite.size.w / 2)) + Math.PI / 2;
 }
 function handleMouseScroll(pos, event) {
   // console.log(event);
