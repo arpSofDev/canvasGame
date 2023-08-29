@@ -16,19 +16,11 @@
     var code = event.keyCode;
     var key;
 
-    if (event.ctrlKey) {
-      pressedSpecialKeys['CTRL'] = status;
-    }
-    if (event.shiftKey) {
-      pressedSpecialKeys['SHIFT'] = status;
-    }
-    if (event.altKey) {
-      pressedSpecialKeys['ALT'] = status;
-    }
-    if (event.metaKey) {
-      pressedSpecialKeys['META'] = status;
-    }
-
+    pressedSpecialKeys['CTRL'] = event.ctrlKey;
+    pressedSpecialKeys['SHIFT'] = event.shiftKey;
+    pressedSpecialKeys['ALT'] = event.altKey
+    pressedSpecialKeys['META'] = event.metaKey
+    
     switch (code) {
       case 32:
         key = 'SPACE';
