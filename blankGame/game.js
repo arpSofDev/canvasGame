@@ -86,7 +86,6 @@ function gameLoop() {
     dt = 0.15;
   } 
 
-  fall_time += dt;
   update(dt);
   render();
   lastTime = now;
